@@ -18,8 +18,8 @@ const Page = (props) => {
 
   if (isActivePage()) {
     return(
-      <li className="page-item mr-1 active">
-        <button className="page-link" onClick={click} >{renderedPageNumber()}</button>
+      <li className="page-item mr-1">
+        <button className="page-link button-outline" onClick={click} >{renderedPageNumber()}</button>
       </li>
     )
   }

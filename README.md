@@ -8,5 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To get started:
 - clone
-- npm install | yarn
-- npm start | yarn start
+- `npm install`
+- `npm start`
+
+To run the tests:
+- `npm run test`
+
+or the corresponding yarn commands

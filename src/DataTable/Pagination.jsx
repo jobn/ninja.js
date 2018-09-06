@@ -11,15 +11,12 @@ const Pagination = ({ currentPageNumber, totalNumberOfPages, onChange }) => {
           key={pageNumber}
           currentPageNumber={currentPageNumber}
           pageNumber={pageNumber}
-          onChange={onChange} />
+          onChange={() => onChange(pageNumber)} />
       })
 
-  if (pages.length <= 1) {
-    return null
-  }
   return(
     <ul className="pagination">
-      {pages}
+      {pages.length > 1 ? pages : null}
     </ul>
   )
 }

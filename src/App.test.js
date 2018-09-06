@@ -41,7 +41,6 @@ it('renders without crashing', () => {
 
 it('renders 5 rows', () => {
   const wrapper = mount(<App rows={rows} locale="da" rowsPerPage={5} />);
-
   expect(wrapper.find('tr').length).toBe(5);
 });
 

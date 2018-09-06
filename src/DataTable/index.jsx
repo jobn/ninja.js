@@ -1,33 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import Pagination from './Pagination'
 import Row from './Row'
 import Search from './Search'
 
-class DataTable extends React.Component {
-  state = {
-    rows: this.props.rows,
-    currentPageNumber: 0,
-    totalNumberOfPages: this.calculateTotalNumberOfPages(this.props.rows)
+class DataTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rows: this.props.rows,
+      currentPageNumber: 0,
+      totalNumberOfPages: this.calculateTotalNumberOfPages(this.props.rows)
+    }
   }
 
-  static defaultProps = {
-    rowsPerPage: 40
+  calculateTotalNumberOfPages = (rows) => {
+    if (this.props.rowsPerPage === 0) return 0
+    return Math.ceil(rows.length / this.props.rowsPerPage)
   }
 
-  calculateTotalNumberOfPages(rows) {
-    const { rowsPerPage } = this.props
-    if (rowsPerPage == 0) return 0
-    return Math.ceil(rows.length / rowsPerPage)
-  }
-
-  search(event) {
-    const { rows } = this.props
+  search = (event) => {
     const text = event.target.value
-    let rowsFound = rows
+    let rowsFound = this.props.rows
 
     if (text) {
-      rowsFound = rows.filter((row) => {
+      rowsFound = this.props.rows.filter((row) => {
         return row.name1.toLowerCase().search(text.toLowerCase()) > -1 ||
          (row.email && row.email.toLowerCase().search(text.toLowerCase()) > -1)
       })
@@ -40,11 +37,11 @@ class DataTable extends React.Component {
     })
   }
 
-  changeToPageNumber(pageNumber) {
+  changeToPageNumber = (pageNumber) =>{
     this.setState({ currentPageNumber: pageNumber })
   }
 
-  rowsInPageNumber(pageNumber) {
+  rowsInPageNumber = (pageNumber) => {
     const { rowsPerPage } = this.props
     const startIndex = pageNumber * rowsPerPage
     return [startIndex, startIndex + rowsPerPage]
@@ -58,7 +55,7 @@ class DataTable extends React.Component {
 
     return(
       <div>
-        <Search onSearch={this.search.bind(this)} />
+        <Search onSearch={ (e) => this.search(e) } />
         <table>
           <tbody>
             { rowsToRender }
@@ -67,7 +64,7 @@ class DataTable extends React.Component {
         <Pagination
           currentPageNumber={currentPageNumber}
           totalNumberOfPages={totalNumberOfPages}
-          onChange={this.changeToPageNumber.bind(this)} />
+          onChange={ (event) => this.changeToPageNumber(event)} />
       </div>
     )
   }

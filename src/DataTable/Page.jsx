@@ -1,10 +1,9 @@
 import React from 'react'
 
-const Page = (props) => {
-  const { pageNumber, currentPageNumber, onChange } = props
+const Page = ({ pageNumber, currentPageNumber, onChange }) => {
 
   const isActivePage = () => {
-    return currentPageNumber == pageNumber
+    return currentPageNumber === pageNumber
   }
 
   const renderedPageNumber = () => {
@@ -16,16 +15,9 @@ const Page = (props) => {
     onChange(pageNumber)
   }
 
-  if (isActivePage()) {
-    return(
-      <li className="page-item mr-1">
-        <button className="page-link button-outline" onClick={click} >{renderedPageNumber()}</button>
-      </li>
-    )
-  }
   return(
     <li className="page-item mr-1">
-      <button className="page-link" onClick={click} >{renderedPageNumber()}</button>
+      <button className={isActivePage() ? 'page-link button-outline' : 'page-link'} onClick={click} >{renderedPageNumber()}</button>
     </li>
   )
 }

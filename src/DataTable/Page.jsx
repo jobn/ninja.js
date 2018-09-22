@@ -18,7 +18,7 @@ const Page = ({ pageNumber, currentPageNumber, onChange }) => {
   }
 
   return(
-    <li className="page-item mr-1">
+    <li className="page-item mar-right-s">
       <button className={buttonClass} onClick={handleClick} >{renderedPageNumber()}</button>
     </li>
   )

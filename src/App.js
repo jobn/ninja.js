@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="container mt-3">
+      <div className="container mar-top-l">
         <DataTable rows={this.props.rows} locale="da" rowsPerPage={5} />
       </div>
     );

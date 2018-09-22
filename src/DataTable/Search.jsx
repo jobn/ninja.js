@@ -8,7 +8,7 @@ const Search = ({ onSearch }) => {
         type="search"
         className="form-control"
         placeholder="Søg brugere"
-        onChange={onSearch.bind(this)} />
+        onChange={(e)=>{onSearch(e)}} />
     </div>
   )
 }

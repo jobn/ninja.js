@@ -6,8 +6,8 @@ const Row = (props) => {
   return (
     <tr>
       <td>
-        <a href={row.edit_path}>
-          {row.name1}
+        <a href={row.editPath}>
+          {row.name}
         </a><br />
         <small>{row.email}</small>
       </td>

@@ -15,6 +15,9 @@ class DataTable extends React.Component {
     rowsPerPage: 40
   }
 
+  search = this.search.bind(this);
+  changeToPageNumber = this.changeToPageNumber.bind(this);
+
   calculateTotalNumberOfPages(rows) {
     const { rowsPerPage } = this.props
     if (rowsPerPage == 0) return 0
@@ -58,7 +61,7 @@ class DataTable extends React.Component {
 
     return(
       <div>
-        <Search onSearch={this.search.bind(this)} />
+        <Search onSearch={this.search} />
         <table>
           <tbody>
             { rowsToRender }
@@ -67,7 +70,7 @@ class DataTable extends React.Component {
         <Pagination
           currentPageNumber={currentPageNumber}
           totalNumberOfPages={totalNumberOfPages}
-          onChange={this.changeToPageNumber.bind(this)} />
+          onChange={this.changeToPageNumber} />
       </div>
     )
   }

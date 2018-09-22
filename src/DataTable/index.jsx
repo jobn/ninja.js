@@ -30,9 +30,12 @@ class DataTable extends React.Component {
     let rowsFound = rows
 
     if (text) {
+      const textFormatted = text.toLowerCase();
+
       rowsFound = rows.filter((row) => {
-        return row.name.toLowerCase().search(text.toLowerCase()) > -1 ||
-         (row.email && row.email.toLowerCase().search(text.toLowerCase()) > -1)
+        const nameFound = row.name && row.name.toLowerCase().search(textFormatted) > -1
+        const emailFound = row.email && row.email.toLowerCase().search(textFormatted) > -1
+        return nameFound || emailFound
       })
     }
 
@@ -56,15 +59,15 @@ class DataTable extends React.Component {
   render() {
     const { rows, currentPageNumber, totalNumberOfPages } = this.state
     const rowsToRender = rows
-      .map(row => <Row key={row.perId} row={row} />)
       .slice(...this.rowsInPageNumber(currentPageNumber))
+      .map((row) => {return <Row key={row.perId} row={row} />})
 
     return(
       <div>
         <Search onSearch={this.search} />
         <table>
           <tbody>
-            { rowsToRender }
+            {rowsToRender}
           </tbody>
         </table>
         <Pagination

@@ -5,9 +5,7 @@ const Row = ({ row }) => {
   return (
     <tr>
       <td>
-        <a href={row.editPath}>
-          {row.name}
-        </a><br />
+        <a className="row-title" href={row.editPath} target="_blank">{row.name}</a>
         <small>{row.email}</small>
       </td>
     </tr>

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Search = (props) => {
-  const { onSearch } = props
+const Search = ({ onSearch }) => {
 
   return (
     <div className="p-b-1">

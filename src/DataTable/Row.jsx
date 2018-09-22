@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Row = (props) => {
-  const { row } = props
+const Row = ({ row }) => {
 
   return (
     <tr>

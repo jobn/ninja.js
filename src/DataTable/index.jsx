@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Pagination from './Pagination'
 import Row from './Row'
@@ -15,9 +16,12 @@ class DataTable extends React.Component {
     rowsPerPage: 40
   }
 
+  search = this.search.bind(this);
+  changeToPageNumber = this.changeToPageNumber.bind(this);
+
   calculateTotalNumberOfPages(rows) {
     const { rowsPerPage } = this.props
-    if (rowsPerPage == 0) return 0
+    if (rowsPerPage === 0) return 0
     return Math.ceil(rows.length / rowsPerPage)
   }
 
@@ -27,9 +31,12 @@ class DataTable extends React.Component {
     let rowsFound = rows
 
     if (text) {
+      const textFormatted = text.toLowerCase();
+
       rowsFound = rows.filter((row) => {
-        return row.name1.toLowerCase().search(text.toLowerCase()) > -1 ||
-         (row.email && row.email.toLowerCase().search(text.toLowerCase()) > -1)
+        const nameFound = row.name && row.name.toLowerCase().search(textFormatted) > -1
+        const emailFound = row.email && row.email.toLowerCase().search(textFormatted) > -1
+        return nameFound || emailFound
       })
     }
 
@@ -53,24 +60,29 @@ class DataTable extends React.Component {
   render() {
     const { rows, currentPageNumber, totalNumberOfPages } = this.state
     const rowsToRender = rows
-      .map(row => <Row key={row.per_id} row={row} />)
       .slice(...this.rowsInPageNumber(currentPageNumber))
+      .map((row) => {return <Row key={row.perId} row={row} />})
 
     return(
       <div>
-        <Search onSearch={this.search.bind(this)} />
+        <Search onSearch={this.search} />
         <table>
           <tbody>
-            { rowsToRender }
+            {rowsToRender}
           </tbody>
         </table>
         <Pagination
           currentPageNumber={currentPageNumber}
           totalNumberOfPages={totalNumberOfPages}
-          onChange={this.changeToPageNumber.bind(this)} />
+          onChange={this.changeToPageNumber} />
       </div>
     )
   }
+}
+
+DataTable.propTypes = {
+  rows: PropTypes.array.isRequired,
+  rowsPerPage: PropTypes.number.isRequired
 }
 
 export default DataTable

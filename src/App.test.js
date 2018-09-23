@@ -4,34 +4,34 @@ import App from './App';
 
 const rows = [
   {
-    name1: 'Mads L. Klausen',
+    name: 'Mads L. Klausen',
     email: 'MadsLKlausen@jourrapide.com',
-    edit_path: 'http://google.com',
-    per_id: 1
+    editPath: 'http://google.com',
+    perId: 1
   },
   {
-    name1: 'Alfred K. Krogh',
+    name: 'Alfred K. Krogh',
     email: 'AlfredKKrogh@armyspy.com',
-    edit_path: 'http://google.com',
-    per_id: 2
+    editPath: 'http://google.com',
+    perId: 2
   },
   {
-    name1: 'Silas L. Bertelsen',
+    name: 'Silas L. Bertelsen',
     email: 'SilasLBertelsen@armyspy.com',
-    edit_path: 'http://google.com',
-    per_id: 3
+    editPath: 'http://google.com',
+    perId: 3
   },
   {
-    name1: 'Mia A. Johnsen',
+    name: 'Mia A. Johnsen',
     email: 'MiaAJohnsen@dayrep.com',
-    edit_path: 'http://google.com',
-    per_id: 4
+    editPath: 'http://google.com',
+    perId: 4
   },
   {
-    name1: 'Alfred S. Schou',
+    name: 'Alfred S. Schou',
     email: 'AlfredSSchou@jourrapide.com',
-    edit_path: 'http://google.com',
-    per_id: 5
+    editPath: 'http://google.com',
+    perId: 5
   }
 ];
 

@@ -1,8 +1,8 @@
-.mt-3 {
+.mar-top-l {
   margin-top: 2rem;
 }
 
-.mr-1 {
+.mar-right-s {
   margin-right: .5rem;
 }
 
@@ -12,4 +12,8 @@
 
 .pagination li {
   display: inline-block;
+}
+
+a.row-title {
+	display: block;
 }

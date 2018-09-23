@@ -6,7 +6,7 @@ const Page = ({ pageNumber, currentPageNumber, onChange }) => {
   if (isActivePage()) buttonClass += ' button-outline'
 
   function isActivePage() {
-    return currentPageNumber == pageNumber
+    return currentPageNumber === pageNumber
   }
 
   function renderedPageNumber() {

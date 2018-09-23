@@ -80,7 +80,7 @@ class DataTable extends React.Component {
   }
 }
 
-DataTable.PropTypes = {
+DataTable.propTypes = {
   rows: PropTypes.array.isRequired,
   rowsPerPage: PropTypes.number.isRequired
 }

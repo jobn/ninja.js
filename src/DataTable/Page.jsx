@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Page = ({ pageNumber, currentPageNumber, onChange }) => {
   let buttonClass = 'page-link'
@@ -22,6 +23,12 @@ const Page = ({ pageNumber, currentPageNumber, onChange }) => {
       <button className={buttonClass} onClick={handleClick} >{renderedPageNumber()}</button>
     </li>
   )
+}
+
+Page.propTypes = {
+  pageNumber: PropTypes.number.isRequired,
+  currentPageNumber: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default Page

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Pagination from './Pagination'
 import Row from './Row'
@@ -77,6 +78,11 @@ class DataTable extends React.Component {
       </div>
     )
   }
+}
+
+DataTable.PropTypes = {
+  rows: PropTypes.array.isRequired,
+  rowsPerPage: PropTypes.number.isRequired
 }
 
 export default DataTable

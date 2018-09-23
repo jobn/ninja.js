@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Row = ({ row }) => {
 
@@ -10,6 +11,10 @@ const Row = ({ row }) => {
       </td>
     </tr>
   )
+}
+
+Row.propTypes = {
+  row: PropTypes.object.isRequired
 }
 
 export default Row

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Search = ({ onSearch }) => {
 
@@ -11,6 +12,10 @@ const Search = ({ onSearch }) => {
         onChange={(e)=>{onSearch(e)}} />
     </div>
   )
+}
+
+Search.propTypes = {
+  onSearch: PropTypes.func.isRequired
 }
 
 export default Search

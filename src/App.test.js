@@ -52,3 +52,8 @@ it('filters rows based on input', () => {
 
   expect(wrapper.find('tr').length).toBe(2);
 });
+
+it('it renders 2 navigation buttons', () => {
+  const wrapper = mount(<App rows={rows} locale="da" rowsPerPage={4} />);
+  expect(wrapper.find('li.page-item.mr-1').length).toBe(2);
+});

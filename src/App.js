@@ -1,12 +1,28 @@
+//@flow
 import React, { Component } from 'react';
 import DataTable from './DataTable';
 import './App.css';
 
-class App extends Component {
+export type rows = Array<{ name1: string, email: string, per_id: number, edit_path: string  }>
+
+type Props = {
+  rows: rows,
+  rowsPerPage: number,
+  locale: 'da' | 'en',
+}
+
+class App extends Component<Props> {
+  static defaultProps = {
+    locale: 'da',
+    rowsPerPage: 5,
+    rows: [],
+  }
+
   render() {
+    const { rows, rowsPerPage, locale } = this.props;
     return (
       <div className="container mt-3">
-        <DataTable rows={this.props.rows} locale="da" rowsPerPage={5} />
+        <DataTable rows={rows} locale={locale} rowsPerPage={rowsPerPage} />
       </div>
     );
   }

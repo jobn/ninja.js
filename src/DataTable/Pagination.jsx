@@ -13,9 +13,12 @@ const Pagination = ({ currentPageNumber, totalNumberOfPages, onChange }) => {
         pages.map(pageNumber => {
           return <Page
             key={pageNumber}
-            currentPageNumber={currentPageNumber}
-            pageNumber={pageNumber}
-            onChange={onChange} />
+            isActive={currentPageNumber === pageNumber}
+            pageNumber={pageNumber + 1}
+            onChange={(event) => {
+              event.preventDefault();
+              onChange(pageNumber);
+            }} />
         })
       }
     </ul>

@@ -5,7 +5,7 @@ import Search from './Search'
 
 export default function DataTable({ searchTerm, searchHandler, rows, currentPageNumber, totalNumberOfPages, onChange }) {
   return (
-    <div>
+    <React.Fragment>
       <Search onChange={searchHandler} value={searchTerm} />
       <table>
         <tbody>
@@ -16,6 +16,6 @@ export default function DataTable({ searchTerm, searchHandler, rows, currentPage
         currentPageNumber={currentPageNumber}
         totalNumberOfPages={totalNumberOfPages}
         onChange={onChange} />
-    </div>
+    </React.Fragment>
   );
 }

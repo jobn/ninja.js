@@ -1,16 +1,13 @@
 import React from 'react';
 
-const Page = ({ pageNumber, currentPageNumber, onChange }) => {
+const Page = ({ pageNumber, isActive, onChange }) => {
   return (
     <li className="page-item mr-1">
       <button
-        className={`page-link ${currentPageNumber === pageNumber && 'button-outline'}`}
-        onClick={(event) => {
-          event.preventDefault();
-          onChange(pageNumber);
-        }}
+        className={`page-link ${isActive && 'button-outline'}`}
+        onClick={onChange}
       >
-        {pageNumber + 1}
+        {pageNumber}
       </button>
     </li>
   );

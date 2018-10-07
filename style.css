@@ -13,3 +13,13 @@
 .pagination li {
   display: inline-block;
 }
+
+.data-list {
+  list-style: none;
+}
+
+.data-list-item {
+  display: block;
+  border-bottom: 0.1rem solid #e1e1e1;
+  padding-bottom: 1rem;
+}

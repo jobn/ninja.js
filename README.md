@@ -1,17 +1,17 @@
-# React interview project
+# Example App in Elm
 
-This project is used as a starting point for interviewing frontend candidates.
+All of the Elm code lives in `src/` and relies on the [elm/html][html] library.
 
-The wanted features are working, but the implementation can be improved a lot in many different ways.
+[Demo](http://ninja-space.surge.sh/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+[html]: https://package.elm-lang.org/packages/elm/html/latest
 
-To get started:
-- clone
-- `npm install`
-- `npm start`
+## Build Instructions
 
-To run the tests:
-- `npm run test`
+Run the following command from the root of this project:
 
-or the corresponding yarn commands
+```bash
+elm make src/Main.elm --output=elm.js
+```
+
+Then open `index.html` in your browser!
